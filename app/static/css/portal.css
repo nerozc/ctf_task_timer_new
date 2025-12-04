@@ -1,0 +1,115 @@
+body {
+    background-color: #000;
+    color: #ff003c; 
+    font-family: 'Share Tech Mono', monospace;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    height: 100vh; margin: 0;
+    background-image: 
+        linear-gradient(rgba(20, 0, 0, 0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 0, 0, 0.5) 1px, transparent 1px);
+    background-size: 30px 30px;
+    overflow: hidden; position: relative;
+}
+
+#doom-glow {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0) 40%, rgba(255, 0, 60, 0.4) 95%);
+    pointer-events: none; z-index: 5; opacity: 0; transition: opacity 2s ease-in;
+    border: 5px solid rgba(255, 0, 60, 0.2);
+}
+.pulsing {
+    animation-name: pulse-red;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+@keyframes pulse-red {
+    0% { transform: scale(1); opacity: 0.5; box-shadow: inset 0 0 50px #ff003c; }
+    100% { transform: scale(1.02); opacity: 0.9; box-shadow: inset 0 0 100px #ff003c; }
+}
+
+.ghost-word {
+    position: fixed; font-family: 'Share Tech Mono', monospace; font-size: 1rem;
+    opacity: 0; pointer-events: none; z-index: 4; white-space: nowrap;
+    text-transform: uppercase; letter-spacing: 2px;
+}
+.ghost-login { 
+    color: #00f0ff; 
+    text-shadow: 2px 0 red, -2px 0 blue; 
+}
+.ghost-pass { 
+    color: #ff003c; 
+    text-decoration: line-through;
+}
+
+@keyframes float-from-left {
+    0% { left: -10%; opacity: 0; }
+    20% { opacity: 0.8; }
+    100% { left: 60%; opacity: 0; }
+}
+@keyframes float-from-right {
+    0% { right: -10%; opacity: 0; }
+    20% { opacity: 0.8; }
+    100% { right: 60%; opacity: 0; }
+}
+@keyframes tremble {
+    0% { transform: skew(0deg); }
+    20% { transform: skew(-10deg); }
+    40% { transform: skew(10deg); }
+    100% { transform: skew(0deg); }
+}
+
+.terminal-window {
+    width: 550px; padding: 40px; 
+    background: #050505; 
+    border: 2px solid #333;
+    border-top: 20px solid #333; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); 
+    text-align: left; position: relative; z-index: 10;
+}
+.header {
+    display: flex; justify-content: space-between;
+    margin-bottom: 40px; border-bottom: 1px dashed #555; padding-bottom: 10px;
+}
+.status { color: #fff; font-weight: bold; }
+.secure { color: #ff003c; animation: blink 1s infinite; }
+
+.field-group { margin-bottom: 20px; }
+label { color: #888; display: block; margin-bottom: 5px; font-size: 0.9em; }
+input {
+    width: 100%; background: #111; border: 1px solid #444;
+    color: #00f0ff; font-family: 'Share Tech Mono', monospace; font-size: 1.2em; 
+    padding: 10px; outline: none; transition: 0.3s;
+}
+input:focus { border-color: #00f0ff; box-shadow: 0 0 10px rgba(0, 240, 255, 0.2); }
+
+button {
+    margin-top: 20px; width: 100%;
+    background: #222; border: 1px solid #ff003c; color: #ff003c;
+    padding: 15px; cursor: pointer; transition: all 0.2s;
+    font-family: 'Share Tech Mono', monospace; font-size: 1.1em;
+    text-transform: uppercase;
+}
+button:hover { background: #ff003c; color: #000; }
+
+#message { margin-top: 20px; color: #ff003c; text-align: center; height: 20px;}
+#timer-container { 
+    margin-top: 30px; color: #fff; background: #ff003c; 
+    padding: 10px; text-align: center; font-weight: bold;
+}
+.loading { opacity: 0.3; pointer-events: none; }
+
+#hesitation-alert {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.95); z-index: 999;
+    flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    border: 10px solid #ff003c;
+}
+#hesitation-alert h1 {
+    color: #ff003c; font-size: 4em; letter-spacing: 5px;
+    text-shadow: 2px 2px #fff;
+    animation: tremble 0.2s infinite;
+}
+#hesitation-alert p { color: #fff; font-size: 1.5em; font-family: 'Share Tech Mono'; }
+.blink { animation: blink 0.5s infinite; }
+@keyframes blink { 50% { opacity: 0; } }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>DATA CORRUPTED</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/defeat.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div id="darkness-overlay"></div>
+
+    <div class="content">
+        <h1>ARCHIVE LOCKDOWN</h1>
+        <p>Система обнаружила аномалию в запросе.</p>
+        <p>Искомый отчёт был удален протоколом очистки.</p>
+        <br><br>
+        <p><a href="/">[ RESTART QUERY ]</a></p>
+    </div>
+
+    <div id="final-message">
+        NFBCorp FIREWALL<br>
+        UNAUTHORIZED SCHEMA DETECTED.<br>
+        CONNECTION DROP.
+    </div>
+
+    <script src="{{ url_for('static', filename='js/defeat.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Uplink</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        .status-line {
+            font-family: 'Share Tech Mono', monospace;
+            color: #ffb347;
+            font-size: 0.8em;
+            border-bottom: 1px dashed #4b0082;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .sender {
+            color: #bfa05f;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .message-body {
+            text-align: left;
+            margin-top: 20px;
+            font-family: 'Share Tech Mono', monospace;
+            color: #a0a0b0;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="logo">SECURE<br>UPLINK</div>
+        
+        <div class="content">
+            <div class="status-line">
+                > CONNECTED: NODE_TAVERN_01<br>
+                > ENCRYPTION: ACTIVE<br>
+                > TARGET: NFBCorp_INTERNAL_NET
+            </div>
+
+            <div class="message-body">
+                <p><span class="sender">s1llya:</span> Я перехватил их канал. Смотри сюда.</p>
+                
+                <p><span class="sender">s1llya:</span>У них есть огромная дыра в броне.</p>
+                
+                <p><span class="sender">s1llya:</span>Cистема слепо доверяет структуре данных.</p>
+                
+                <p><span class="sender">s1llya:</span> Нам нужен <strong>отчёт о проекте</strong>. Они списали его в архив и удалили ссылки, но сам объект всё ещё в базе. </p>
+                
+                <p class="quote" style="border-color: #ffb347; color: #fff;">
+                    «Твоя задача: убедить их API отдать этот файл. Не пытайся подобрать пароль — обмани саму логику запроса.»
+                </p>
+            </div>
+        </div>
+        
+        <a href="/sanctum" class="btn"> [ УСТАНОВИТЬ СОЕДИНЕНИЕ ] </a>
+    </div>
+
+    <script>
+        // Сброс таймера "смерти" при возвращении в убежище (на главную)
+        localStorage.removeItem('cult_doom_start_time');
+    </script>
+</body>
+</html>
